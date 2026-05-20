@@ -121,7 +121,7 @@ export default async function Home({
           <Search />
         </div>
 
-        {/* Main text */}
+        {/* Today / temperature — top */}
         <div className="absolute text-white" style={{ top: 82, left: 28, right: 28 }}>
           <div className="flex justify-between items-start">
             <div className="leading-snug">
@@ -135,13 +135,24 @@ export default async function Home({
               {temp}°
             </p>
           </div>
-          <div className="mt-6">
-            <p className="text-[22px] font-bold" style={{ textShadow: '0 1px 12px rgba(0,0,0,0.5)' }}>
-              {location.name}
-            </p>
-            <p className="text-[15px]" style={{ opacity: 0.72 }}>{location.country}</p>
-            <p className="text-[13px] mt-1" style={{ opacity: 0.65 }}>Feels like {feels}°</p>
-          </div>
+        </div>
+
+        {/* City / country / feels like — over the grass */}
+        <div
+          className="absolute text-white"
+          style={{
+            bottom: 245,
+            left: 28,
+            background: 'rgba(0,0,0,0.55)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            borderRadius: 12,
+            padding: '10px 16px',
+          }}
+        >
+          <p className="text-[24px] font-bold leading-tight">{location.name}</p>
+          <p className="text-[14px] mt-0.5" style={{ opacity: 0.78 }}>{location.country}</p>
+          <p className="text-[13px] mt-1" style={{ opacity: 0.68 }}>Feels like {feels}°</p>
         </div>
 
         {/* Bottom frosted panel */}
@@ -190,8 +201,8 @@ export default async function Home({
           >
             {hourly.map((h, i) => (
               <div key={i} className="text-center">
-                <p className="text-[10px]" style={{ opacity: 0.50 }}>{h.label}</p>
-                <p className="text-[14px] font-bold mt-1">{h.temp}°</p>
+                <p className="text-[12px]" style={{ opacity: 0.55 }}>{h.label}</p>
+                <p className="text-[17px] font-bold mt-1">{h.temp}°</p>
               </div>
             ))}
           </div>
